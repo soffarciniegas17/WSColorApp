@@ -22,7 +22,9 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         findView();
+        findAnimations();
 
     }
     public void findView(){
@@ -34,6 +36,23 @@ public class Home extends AppCompatActivity {
     }
     public void findAnimations(){
         aparecerIzquierda= AnimationUtils.loadAnimation(this,R.anim.aparecer_desde_izquierda);
+        aparecerIzquierda.setFillAfter(true);
+
+        aparecerDerecha= AnimationUtils.loadAnimation(this,R.anim.aparecer_desde_derecha);
+        aparecerDerecha.setFillAfter(true);
+
+        desaparecerIzquierda= AnimationUtils.loadAnimation(this,R.anim.desaparecer_hacia_izquierda);
+        desaparecerIzquierda.setFillAfter(true);
+
+        desaparecerDerecha= AnimationUtils.loadAnimation(this,R.anim.desaparecer_hacia_derecha);
+        desaparecerDerecha.setFillAfter(true);
+    }
+    public void animaEntrada(){
+        btonPlay.startAnimation(aparecerIzquierda);
+        btonScores.startAnimation(aparecerIzquierda);
+        btonSetting.startAnimation(aparecerIzquierda);
+        btonExit.startAnimation(aparecerIzquierda);
+
     }
 
     public void botonesHome(View v){

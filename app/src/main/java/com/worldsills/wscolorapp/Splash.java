@@ -30,7 +30,7 @@ public class Splash extends AppCompatActivity {
         Intent intent=new Intent(this, Home.class);
         ImageView imagenLogo=findViewById(R.id.logo_app);
 
-        Pair pair=new Pair("t_logo_app",imagenLogo);
+        Pair pair=new Pair(imagenLogo,"t_logo_app");
         ActivityOptionsCompat op=ActivityOptionsCompat.makeSceneTransitionAnimation(this,pair);
         startActivity(intent, op.toBundle());
         finish();
