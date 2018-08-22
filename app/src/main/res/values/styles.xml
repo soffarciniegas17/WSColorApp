@@ -22,7 +22,7 @@
         <item name="android:layout_height">@dimen/alto_item_puntaje</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@drawable/item_puntaje</item>
-        <item name="android:layout_marginBottom">1dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
     </style>
     <style name="texto_puntajes">
 

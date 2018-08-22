@@ -19,7 +19,7 @@
         android:height="@dimen/alto_item_puntaje"
         >
 
-        <shape>
+        <shape android:shape="oval">
             <solid android:color="@android:color/black"/>
             <corners android:radius="@dimen/radio_por_defecto"/>
             <stroke android:color="@color/azuloscuro"

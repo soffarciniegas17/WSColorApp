@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:background="@drawable/fondo_dialog_transparente"
+    android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/logo_color_app"
+        android:layout_margin="22dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CORRECTAS"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/final_correctas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="60dp"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INCORRECTAS"
+        android:textColor="@android:color/white"/>
+    <TextView
+        android:id="@+id/final_incorrectas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textColor="@android:color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_marginBottom="22dp"
+        >
+
+        <ImageButton
+            android:id="@+id/final_bton_home"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/fondo_verde"
+            android:src="@drawable/icon_home"
+            />
+        <ImageButton
+            android:id="@+id/final_bton_shared"
+            android:background="@color/rojooscuro"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/icon_compartir"
+            />
+
+        <ImageButton
+            android:id="@+id/final_bton_replay"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/fondo_amarillo"
+            android:src="@drawable/icon_replay"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
