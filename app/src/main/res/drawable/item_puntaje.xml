@@ -7,6 +7,25 @@
         >
 
         <shape>
+            <solid android:color="@android:color/black"/>
+            <corners android:radius="@dimen/radio_por_defecto"/>
+
+
+        </shape>
+    </item>
+
+    <item
+        android:width="@dimen/alto_item_puntaje"
+        android:height="@dimen/alto_item_puntaje"
+        >
+
+        <shape>
+            <solid android:color="@android:color/black"/>
+            <corners android:radius="@dimen/radio_por_defecto"/>
+            <stroke android:color="@color/azuloscuro"
+                android:width="0.5dp"
+                />
+
 
         </shape>
     </item>
