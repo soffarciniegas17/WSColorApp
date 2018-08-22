@@ -3,8 +3,10 @@ package com.worldsills.wscolorapp;
 import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,9 +25,11 @@ public class Partida extends AppCompatActivity {
     Button b1, b2, b3, b4;
     Button botones;
     TextView palabra, intemp, contap, bien, mal;
-    int palabraP, good, wrong, total, intentos;
-    private  int resources []=  {R.drawable.anim_boton_a, R.drawable.anim_boton_az, R.drawable.anim_boton_r
-    , R.drawable.anim_boton_v};
+    int palabraP, good, wrong, total, intentos, mod;
+    private  int resources []=  {R.drawable.anim_boton_a,
+               R.drawable.anim_boton_az,
+               R.drawable.anim_boton_r
+              , R.drawable.anim_boton_v};
     int numeros[];
     Dialog gameover;
     Animation botonani;
@@ -37,37 +41,66 @@ public class Partida extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida);
 
-        b1= findViewById(R.id.b1);
-        b2= findViewById(R.id.b2);
-        b3= findViewById(R.id.b3);
-        b4= findViewById(R.id.b4);
+        b1 = findViewById(R.id.b1);
+        b2 = findViewById(R.id.b2);
+        b3 = findViewById(R.id.b3);
+        b4 = findViewById(R.id.b4);
 
-        palabra= findViewById(R.id.palabra);
-        contap= findViewById(R.id.contapa);
-        intemp= findViewById(R.id.ti_inte);
+        palabra = findViewById(R.id.palabra);
+        contap = findViewById(R.id.contapa);
+        intemp = findViewById(R.id.ti_inte);
         bien = findViewById(R.id.good);
 
 
-        gameover= new Dialog(this);
+        gameover = new Dialog(this);
         gameover.setContentView(R.layout.dialog_final);
         gameover.setCanceledOnTouchOutside(false);
         gameover.setCancelable(false);
 
-        botonani= AnimationUtils.loadAnimation(this, R.anim.aparecer);
+        botonani = AnimationUtils.loadAnimation(this, R.anim.aparecer);
 
-        good=0;
-        wrong=0;
-        total=0;
+        good = 0;
+        wrong = 0;
+        total = 0;
         JuegaBoton();
+
+        Bundle recuperar= getIntent().getExtras();
+
+        try  {
+            mod= recuperar.getInt("tipoP");
+            if(mod==0){
+                intentos=3;
+                timerpa=3000;
+            }
+        } catch (Exception e){}
+    }
+
+
+    String modopartida;
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
+        modopartida= sharedPreferences.getString("MODO_PARTIDA", "INTENTOS");
+
+        if(modopartida.equalsIgnoreCase("TIEMPO")){
+            timerpartida= 30000;
+            tiempoPartida();
+        } else {
+
+            intentos = Integer.parseInt(sharedPreferences.getString("INTENTOS", "3"));
+        }
+
+        timerpa= Long.parseLong(sharedPreferences.getString("DURACION_PALABRA", "1000"));
 
     }
 
-   private int azar (){
+    private int azar (){
         Random a= new Random();
         int num= a.nextInt(colores.length);
         return num;
     }
-
 
     private void mostrarbotones (){
         numeros = new int [4];
@@ -96,6 +129,7 @@ public class Partida extends AppCompatActivity {
     }
 
     public void JuegaBoton (){
+        tiempoPalabra();
         total++;
         asignarcolor();
         mostrarbotones();
@@ -131,20 +165,22 @@ public class Partida extends AppCompatActivity {
     }
 
 
-
     @TargetApi(23)
     private void comparar (int p){
-
+        palabratimer.cancel();
         if(palabraP==p){
             good++;
             JuegaBoton();
         } else {
             wrong++;
         }
-
-        if(intentos==0){
-            finalzaPartida();
+        if(mod==0) {
+            intemp.setText(""+intentos);
+            if(intentos==0){
+                finalzaPartida();
+            }
         }
+
     }
 
 
@@ -167,17 +203,21 @@ public class Partida extends AppCompatActivity {
        }
    }
 
+
+   ////////////////// TIEMPOS /////////////////////////////////////
+
     CountDownTimer partidatimer;
     public void tiempoPartida(){
         palabratimer= new CountDownTimer(timerpartida, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
-
+                intemp.setText(""+millisUntilFinished/1000);
+                finalzaPartida();
             }
 
             @Override
             public void onFinish() {
-
+                finalzaPartida();
             }
         }.start();
 
@@ -201,9 +241,19 @@ public class Partida extends AppCompatActivity {
 
 
     private void finalzaPartida() {
+
         gameover.show();
 
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        try {
+            partidatimer.cancel();
+        } catch (Exception e){}
     }
 
     @Override
