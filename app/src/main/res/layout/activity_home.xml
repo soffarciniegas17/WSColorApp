@@ -1,9 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_app"
+    android:gravity="center"
     tools:context=".Home">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/logo_app"
+        android:transitionName="t_logo_app"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/logo_color_app"
+        android:layout_marginBottom="15dp"
+
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/home_play"
+                android:layout_width="220dp"
+                android:layout_height="42dp"
+                android:text="play"
+                android:textColor="@android:color/white"
+                android:background="@drawable/fondo_verde"/>
+            <Button
+                android:id="@+id/home_socres"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:text="scores"
+                android:textColor="@android:color/white"
+                android:background="@color/azuloscuro"/>
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/home_setting"
+                android:layout_width="265dp"
+                android:text="setting"
+                android:textSize="10sp"
+                android:textColor="@android:color/white"
+                android:layout_height="30dp"
+                android:background="@color/rojooscuro"/>
+            <ImageButton
+                android:id="@+id/home_exit"
+                android:src="@drawable/icon_play"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/fondo_amarillo"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
