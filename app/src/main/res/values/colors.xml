@@ -3,4 +3,20 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <color name="amarilloclaro">#e9ce06</color>
+    <color name="amarallooscuro">#b49f00</color>
+
+    <color name="azulclaro">#1e33ea</color>
+    <color name="azuloscuro">#0a0fae</color>
+
+    <color name="verdeclaro">#43c118</color>
+    <color name="verdeoscuro">#2c8311</color>
+
+    <color name="rojoclaro">#e43131</color>
+    <color name="rojooscuro">#c61616</color>
+
+
+
 </resources>
