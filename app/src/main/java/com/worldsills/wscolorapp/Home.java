@@ -1,6 +1,7 @@
 package com.worldsills.wscolorapp;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -177,12 +178,26 @@ public class Home extends AppCompatActivity {
 
         for (int i=0; i<puntajes.length; i++)puntajes[i].setText(top5[i]);
 
+        LinearLayout layoutScores=dialogScores.findViewById(R.id.layout_dialog_scores);
+        layoutScores.startAnimation(aparecer);
+
+
         TextView cerrarDialog=dialogScores.findViewById(R.id.scores_cerrar);
         cerrarDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 animaEntrada();
                 logoApp.startAnimation(aparecer);
+                dialogScores.dismiss();
+            }
+        });
+
+        dialogScores.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                Intent intent=new Intent(getApplicationContext(), Home.class);
+                startActivity(intent);
+                finish();
                 dialogScores.dismiss();
             }
         });

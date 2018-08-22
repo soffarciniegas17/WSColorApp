@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:layout_width="300dp"
         android:background="@drawable/fondo_dialog_transparente"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:id="@+id/contenedor_preferencias"
         ></LinearLayout>
 
