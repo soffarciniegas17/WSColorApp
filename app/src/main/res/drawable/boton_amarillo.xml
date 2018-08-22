@@ -4,8 +4,9 @@
     <item>
 
         <shape>
+            <solid android:color="@color/amarallooscuro"></solid>
 
-            <solid
+
         </shape>
     </item>
 

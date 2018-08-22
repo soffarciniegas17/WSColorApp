@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="tam_botones">95dp</dimen>
+    <dimen name="tam_total_botones">100dp</dimen>
+</resources>
