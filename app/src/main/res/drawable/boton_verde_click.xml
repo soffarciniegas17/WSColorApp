@@ -7,20 +7,11 @@
 
 
         <shape>
-            <solid android:color="@color/amarallooscuro"></solid>
+            <solid android:color="@color/verdeclaro"></solid>
             <corners android:radius="80dp"/>
         </shape>
     </item>
 
-    <item
-        android:width="@dimen/tam_botones"
-        android:height="@dimen/tam_botones">
 
-
-        <shape>
-            <solid android:color="@color/amarilloclaro"></solid>
-            <corners android:radius="80dp"/>
-        </shape>
-    </item>
 
 </layer-list>

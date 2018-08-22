@@ -7,7 +7,7 @@
 
 
         <shape>
-            <solid android:color="@color/amarallooscuro"></solid>
+            <solid android:color="@color/azulclaro"></solid>
             <corners android:radius="80dp"/>
         </shape>
     </item>
@@ -18,7 +18,7 @@
 
 
         <shape>
-            <solid android:color="@color/amarilloclaro"></solid>
+            <solid android:color="@color/azuloscuro"></solid>
             <corners android:radius="80dp"/>
         </shape>
     </item>
