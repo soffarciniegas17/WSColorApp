@@ -10,10 +10,26 @@
         <item name="android:textColorSecondary">#6b6b6b</item>
     </style>
 
-    <style name="estilo_fondo_dialog_setting" parent="Base.Theme.AppCompat.Dialog.Alert">
+    <style name="estilo_fondo_dialog_setting" parent="Theme.AppCompat.Dialog.Alert">
 
         <item name="android:background">@android:color/black</item>
         <item name="android:textColor">@android:color/white</item>
+
+    </style>
+
+    <style name="contenedor_item_puntaje">
+        <item name="android:layout_width">@dimen/ancho_item_puntaje</item>
+        <item name="android:layout_height">@dimen/alto_item_puntaje</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/item_puntaje</item>
+        <item name="android:layout_marginBottom">1dp</item>
+    </style>
+    <style name="texto_puntajes">
+
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
 
     </style>
 
