@@ -3,4 +3,9 @@
 
     <dimen name="tam_botones">95dp</dimen>
     <dimen name="tam_total_botones">100dp</dimen>
+
+    <dimen name="radio_por_defecto">20dp</dimen>
+
+    <dimen name="ancho_item_puntaje">250dp</dimen>
+    <dimen name="alto_item_puntaje">50dp</dimen>
 </resources>

@@ -17,6 +17,8 @@
     <color name="rojoclaro">#e43131</color>
     <color name="rojooscuro">#c61616</color>
 
+    <color name="negro_transparente">#3d000000</color>
+
 
 
 </resources>

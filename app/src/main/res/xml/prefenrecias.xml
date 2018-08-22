@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="MODO PARTIDA" >
+        <ListPreference
+            android:icon="@drawable/icon_modo_partida"
+            android:key="MODO_PARTIDA"
+            android:title="MODO PARTIDA"
+            android:entries="@array/valores_modo_partida"
+            android:entryValues="@array/valores_modo_partida"
+            android:summary="Escoje la modalidad de juego"
+            />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="PERSONALIZAR">
+        <EditTextPreference
+            android:title="Duración Palabra"
+            android:summary="digita la duración de cada palabra mostrada (Miliseguntos)"
+            android:key="DURACION_PALABRA"
+            android:maxLength="5"
+            android:icon="@drawable/icon_modo_partida"
+            />
+        <EditTextPreference
+            android:icon="@drawable/icon_intentos"
+            android:title="Intentos"
+            android:summary="Digita la cantidad de intentos por partida"
+            android:key="INTENTOS"
+            android:maxLength="2"
+            />
+
+
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="COMENZAR PARTIDA">
+
+        <Preference
+            android:icon="@drawable/icon_play"
+            android:title="Iniciar Partida"
+            android:summary="Se inicia con la configuración personalizada">
+
+            <intent android:action="android.intent.action.VIEW"
+                android:targetClass="com.worldsills.wscolorapp.Partida"
+                android:targetPackage="com.worldsills.wscolorapp">
+
+
+            </intent>
+        </Preference>
+
+
+    </PreferenceCategory>
+</PreferenceScreen>
