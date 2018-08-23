@@ -17,6 +17,7 @@
             android:summary="digita la duración de cada palabra mostrada (Miliseguntos)"
             android:key="DURACION_PALABRA"
             android:maxLength="5"
+            android:inputType="number"
             android:icon="@drawable/icon_tiempo"
             />
         <EditTextPreference
@@ -24,6 +25,7 @@
             android:title="Intentos"
             android:summary="Digita la cantidad de intentos por partida"
             android:key="INTENTOS"
+            android:inputType="number"
             android:maxLength="2"
             />
 

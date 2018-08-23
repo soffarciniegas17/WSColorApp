@@ -52,7 +52,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        android:weightSum="20"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -60,15 +60,19 @@
             android:id="@+id/b1"
             android:layout_marginLeft="10dp"
             android:background="@drawable/anim_boton_a"
-            android:layout_width="0dp"
-            android:layout_weight="14"
+            android:layout_width="wrap_content"
+
             android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="150dp"
+            android:layout_height="0dp" />
 
         <Button
             android:background="@drawable/anim_boton_az"
             android:id="@+id/b2"
-            android:layout_weight="6"
-            android:layout_width="0dp"
+
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
  />
 
@@ -85,13 +89,15 @@
         android:textSize="70dp"
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="140dp"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"/>
 
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_marginTop="40dp"
-        android:weightSum="20"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -99,19 +105,21 @@
             android:id="@+id/b3"
             android:layout_marginLeft="10dp"
             android:background="@drawable/anim_boton_r"
-            android:layout_width="0dp"
-            android:layout_weight="14"
+            android:layout_width="wrap_content"
+
             android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="150dp"
+            android:layout_height="0dp" />
 
         <Button
             android:background="@drawable/anim_boton_v"
             android:id="@+id/b4"
-            android:layout_weight="6"
-            android:layout_width="0dp"
+
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           />
+            />
 
     </LinearLayout>
-
-
 </LinearLayout>

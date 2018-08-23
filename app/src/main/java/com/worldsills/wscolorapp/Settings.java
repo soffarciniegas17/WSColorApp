@@ -30,5 +30,9 @@ public class Settings extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void startActivity(Intent intent){
+        intent.putExtra("tipoP",1);
+        super.startActivity(intent);
+    }
 
 }

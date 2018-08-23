@@ -137,9 +137,9 @@ public class Partida extends AppCompatActivity {
 
         tiempoPalabra(timerpa);
 
-        bien.setText("Correctas \n" +good);
-        contap.setText("Total \n "+ total);
-        intemp.setText("Intentos \n "+intentos);
+        bien.setText("CORRECTAS \n" +good);
+        contap.setText("PALABRAS \n "+ total);
+        if(mod==0)intemp.setText("INTENTOS \n "+intentos);
     }
 
 
@@ -183,7 +183,7 @@ public class Partida extends AppCompatActivity {
         if(palabraP==p)good++;
         else intentos--;
 
-        if(intentos==0)finalzaPartida();
+        if(intentos==0 && mod==0)finalzaPartida();
         else juego();
 
     }
