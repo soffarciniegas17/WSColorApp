@@ -66,39 +66,32 @@ public class Partida extends AppCompatActivity {
         wrong = 0;
         total=0;
         intentos=3;
-        timerpa=2000;
+        timerpa=3000;
 
-        juego();
 
-      /*  Bundle recuperar= getIntent().getExtras();
 
-        try  {
-            mod= recuperar.getInt("tipoP");
-            if(mod==0){
-                intentos=3;
-                timerpa=2000;
-                juego();
-            }
-        } catch (Exception e){}*/
+      Bundle recuperar= getIntent().getExtras();
+
+      if(recuperar!=null)mod= recuperar.getInt("tipoP");
+      else mod=1;
+
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
-        String modopartida;
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
 
-        if(sharedPreferences.getString("MODO_PARTIDA", "INTENTOS").equalsIgnoreCase("TIEMPO")){
-            tiempoPartida(30000);
-            mod=1;
-            juego();
-        } else {
-            mod=2;
+        if (mod==1) {
+            if (sharedPreferences.getString("MODO_PARTIDA", "INTENTOS").equalsIgnoreCase("TIEMPO")) {
+                tiempoPartida(30000);
+            }
             intentos = Integer.parseInt(sharedPreferences.getString("INTENTOS", "3"));
+            timerpa = Integer.parseInt(sharedPreferences.getString("DURACION_PALABRA", "3000"));
         }
 
-        timerpa= (Integer.parseInt(sharedPreferences.getString("DURACION_PALABRA", "1000")))*1000;
+        juego();
 
     }
 
@@ -132,6 +125,8 @@ public class Partida extends AppCompatActivity {
         b3.startAnimation(botonani);
         b4.startAnimation(botonani);
 
+        botonosclick();
+
     }
 
     public void juego (){
@@ -139,7 +134,6 @@ public class Partida extends AppCompatActivity {
         mostrarbotones();
         asignarcolor();
         palabra.setText(colores[azar()]);
-        botonosclick();
 
         tiempoPalabra(timerpa);
 
@@ -184,26 +178,13 @@ public class Partida extends AppCompatActivity {
     private void comparar (int p){
         try {
             palabratimer.cancel();
-
         }catch (Exception e){}
 
+        if(palabraP==p)good++;
+        else intentos--;
 
-        if(palabraP==p){
-            good++;
-            juego();
-
-        } else {
-            intentos--;
-
-        }
-
-        if(intentos==0){
-            finalzaPartida();
-                } else {
-            juego();
-        }
-
-
+        if(intentos==0)finalzaPartida();
+        else juego();
 
     }
 
@@ -256,13 +237,9 @@ public class Partida extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Toast.makeText(Partida.this, "ENTRAR", Toast.LENGTH_SHORT).show();
                 intentos--;
-                if(intentos==0){
-                    finalzaPartida();
-                } else {
-                    juego();
-                }
+                if(intentos==0)finalzaPartida();
+                else juego();
 
             }
         }.start();
@@ -273,6 +250,9 @@ public class Partida extends AppCompatActivity {
     private void finalzaPartida() {
         try {
             palabratimer.cancel();
+        }catch (Exception e){}
+        try{
+            partidatimer.cancel();
         }catch (Exception e){}
 
         ImageButton home, again, red;
